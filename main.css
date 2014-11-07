@@ -1,0 +1,10 @@
+body{
+    background-color: hotpink;
+    color: hotpink;
+ 
+}
+@media (max-width: 320px){
+    body{
+        background-color: red; 
+    }
+}
