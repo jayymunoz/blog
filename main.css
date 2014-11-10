@@ -8,3 +8,13 @@ body{
         background-color: red; 
     }
 }
+//query for iphone
+
+@media (min-width: 1024px){
+    body{
+        background-color: yellow;
+    }
+}
+
+//made media query into different colors in sizes
+// this is a query for an ipad
