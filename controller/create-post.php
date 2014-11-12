@@ -1,5 +1,5 @@
 <?php
-     $title = filer_input(INPUT_POST, "title", FILTER_SANITIZE_STRING);
+     $title = filter_input(INPUT_POST, "title", FILTER_SANITIZE_STRING);
      $post = filter_input(INPUT_POST, "post", FILTER_SANITIZE_STRING);
      //this is a post where we send information
      //this post is good to php
