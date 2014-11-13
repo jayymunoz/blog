@@ -1,4 +1,5 @@
 <?php
+//require config file from the $path variable
     require_once(__DIR__ . "/../model/config.php");
 ?>
 
