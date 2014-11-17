@@ -1,5 +1,5 @@
 <?php 
-require_once(__DIR__. "/../model/database.php");
+require_once(__DIR__ . "/../model/config.php");
 //require database file from the modal
 
 $connection = new mysqli($host, $username, $password, $database);
@@ -27,7 +27,6 @@ $connection = new mysqli($host, $username, $password, $database);
     else{
         echo"<p>$connection->error</p>";
     }
-    //inserted a query for a connection
-        
+    //inserted a query for a connection        
      
      $connection->close();
