@@ -32,7 +32,13 @@ class Datbase {
    
 
     public function query($string) {
+        $this->openConnection();
         
+        $query = $this->connection->query();
+        
+        $this->closeConnection();
+        
+        return $query;
     }
 
 }
@@ -42,5 +48,6 @@ class Datbase {
 //when we are creating a new object the varibles are hidden so no one can modify them
 // to create a new instance of an object
 //we want to store the information within our object that way we have access to it through out our object.
-//we want and need to get the information to our global variables.
+//we want and need to get 
+//the information to our global variables.
 //set up an isset to set up the variables to check up if theres anything within the variable

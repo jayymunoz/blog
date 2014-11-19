@@ -1,8 +1,6 @@
 <?php
     require_once(__DIR__ . "/../model/config.php");
     
-    $connection = new mysqli($host, $username, $password);
-    
     if($connection->connect_error) {
         die("Error: " . $connection->connect_error);      
     }
@@ -47,5 +45,3 @@
         //were telling it that its false
         //were doing paragraph tags that way the lines wont be together
     }
-    
-    $connection->close();
