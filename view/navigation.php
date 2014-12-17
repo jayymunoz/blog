@@ -1,5 +1,11 @@
 <?php
      require_once(__DIR__ . "/../model/config.php");
+     require_once(__DIR__ . "/controller/login-verify.php");
+     
+     if(!aunthicateUser()) {
+         header("Location: " . $path . "index.php");
+         die();
+     }
      //we use "/../ to get out of the view folder"
 ?>
 <nav>

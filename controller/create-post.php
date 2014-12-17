@@ -1,32 +1,24 @@
-<?php 
-require_once(__DIR__ . "/../model/config.php");
-//require database file from the modal
+<?php
 
-$connection = new mysqli($host, $username, $password, $database);
+require_once(__DIR__ . "/../model/config.php") ;
 
-//this is taking me to my database.php file
-//this post means its receiving data called title and filter
 
-     $title = filter_input(INPUT_POST, "title", FILTER_SANITIZE_STRING);
-     $post = filter_input(INPUT_POST, "post", FILTER_SANITIZE_STRING);
-     //this is a post where we send information
-     //this post is good to php
-     //this is so were able to filter the input
-     
-     
-     
-    $query = $connection->query("INSERT INTO posts SET title = '$title', post = '$post'");
-    
-    //making sure the right variable string is getting stored
-    //created a query
-    
-    if($query) {
-        echo "<p>Successfully inserted post: $title </p>";
-    }
-     
-    else{
-        echo"<p>$connection->error</p>";
-    }
-    //inserted a query for a connection        
-     
-     $connection->close();
+$title = filter_input(INPUT_POST,"title",FILTER_SANITIZE_STRING);//inputs title to user
+$post = filter_input(INPUT_POST,"post",FILTER_SANITIZE_STRING);//inputs post to user
+$date = new Datetime('today');
+$time = new Datetime('America/Los_Angeles');
+
+echo "<p> Title: $title</p>";//echos out title
+echo "<p> Post: $post</p>";//echos out post
+
+$query = $_SESSION["connection"]->query("INSERT INTO posts SET title = '$title', post = '$post' "); //connects post to the query
+
+if($query) {
+    echo "<p> successfully inserted post: $title</p>";//if the query does exsit it will display this 
+    echo "Posted on : " . $date->format("M/D/" . "" . "d/Y") . " at " . $time->format("G:i");
+}
+else{
+    echo "<p>" . $_SESSION["connection"]->error . "</p>"; //if the query does not exsit it will display this 
+}
+
+

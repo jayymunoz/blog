@@ -1,14 +1,23 @@
 <?php
-    $path = "/munozj-blog/";
-    
-    $host = "localhost";
-    $username = "root";
-    $password = "root";
-    $database = "blog_db";
-    
-    $connection = new Database($host, $username, $password, $database);
-    // leading it to the links
-    //refactoring code for its post to work
 
-   
-    //a connection that will make us access or gives us the username, password, and the database.
+
+require_once(__DIR__ . "/database.php");
+session_start();
+session_regenerate_id(true);
+
+
+$path = "/blog/";  //created path variable and assigned it as blog
+
+
+$host = "localhost";
+$username = "root";
+$password = "root";
+$database = "blog_db";
+
+
+
+if (!isset($_SESSION["connection"])) {
+$connection = new Database($host, $username, $password, $database);
+$_SESSION["connection"] = $connection; 
+
+}
